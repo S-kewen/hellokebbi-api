@@ -11,6 +11,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -28,7 +29,7 @@ import java.util.Map;
 public class CardController {
     @LoginToken
     @RequestMapping("addCard")
-    public Result addCard(@RequestHeader("Authorization") String authorization, String name, String cardNum, String goodThru, String password) {
+    public Result addCard(@RequestHeader("Authorization") String authorization, @RequestParam String name, @RequestParam String cardNum, @RequestParam String goodThru, @RequestParam String password) {
         Token token = new ServiceFacade().tokenServiceParseToken(authorization);
         if (token != null) {
             Card card = new Card();
@@ -55,7 +56,7 @@ public class CardController {
 
     @LoginToken
     @RequestMapping("modifyCardInfo")
-    public Result modifyCardInfo(@RequestHeader("Authorization") String authorization, int id, String name, String cardNum, String goodThru, String password) {
+    public Result modifyCardInfo(@RequestHeader("Authorization") String authorization, @RequestParam int id, @RequestParam String name, @RequestParam String cardNum, @RequestParam String goodThru, @RequestParam String password) {
         Token token = new ServiceFacade().tokenServiceParseToken(authorization);
         if (token != null) {
             Card card = new Card();
@@ -103,7 +104,7 @@ public class CardController {
 
     @LoginToken
     @RequestMapping("deleteCard")
-    public Result deleteCard(@RequestHeader("Authorization") String authorization, int id) {
+    public Result deleteCard(@RequestHeader("Authorization") String authorization, @RequestParam int id) {
         Token token = new ServiceFacade().tokenServiceParseToken(authorization);
         if (token != null) {
             Card card = new Card();

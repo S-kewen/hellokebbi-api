@@ -14,6 +14,7 @@ import com.boot.hellokebbi.result.StatusMsg;
 import com.boot.hellokebbi.util.YunCourierUtilImpl;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.text.SimpleDateFormat;
@@ -36,7 +37,7 @@ public class UserController {
 
     @PassToken
     @RequestMapping("login")
-    public Result login(String username, String password) {
+    public Result login(@RequestParam String username, @RequestParam String password) {
         User user = new User();
         user.setUsername(username);
         user.setPassword(password);
@@ -78,7 +79,7 @@ public class UserController {
 
     @LoginToken
     @RequestMapping("modifyPassword")
-    public Result modifyPassword(@RequestHeader("Authorization") String authorization, String oldPassword, String newPassword) {
+    public Result modifyPassword(@RequestHeader("Authorization") String authorization, @RequestParam String oldPassword, @RequestParam String newPassword) {
         Token token = new ServiceFacade().tokenServiceParseToken(authorization);
         if (token != null) {
             User user = new User();
@@ -129,7 +130,7 @@ public class UserController {
 
     @PassToken
     @RequestMapping("register")
-    public Result register(String username, String password, String email, String phone, String code) throws CloneNotSupportedException {
+    public Result register(@RequestParam String username, @RequestParam String password, @RequestParam String email, @RequestParam String phone, @RequestParam String code) throws CloneNotSupportedException {
         VerifyRecord verifyRecord = new VerifyRecord();
         verifyRecord.setReceiver(email);
         verifyRecord.setCode(code);
@@ -163,7 +164,7 @@ public class UserController {
 
     @PassToken
     @RequestMapping("sendCode")
-    public Result sendCode(String email) {
+    public Result sendCode(@RequestParam String email) {
         VerifyRecord verifyRecord = new VerifyRecord();
         String code = RandomUtil.randomNumbers(6);
         verifyRecord.setUid(0);
@@ -221,7 +222,7 @@ public class UserController {
 
     @PassToken
     @RequestMapping("checkUsername")
-    public Result checkUsername(String username) {
+    public Result checkUsername(@RequestParam String username) {
         User user = new User();
         user.setUsername(username);
         int count = new ServiceFacade().userServiceGetCount(user);
@@ -233,7 +234,7 @@ public class UserController {
 
     @LoginToken
     @RequestMapping("bindIdCard")
-    public Result bindIdCard(@RequestHeader("Authorization") String authorization, String idCard) {
+    public Result bindIdCard(@RequestHeader("Authorization") String authorization, @RequestParam String idCard) {
         Token token = new ServiceFacade().tokenServiceParseToken(authorization);
         if (token != null) {
             User user = new User();

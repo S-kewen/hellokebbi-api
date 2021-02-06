@@ -11,6 +11,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -29,7 +30,7 @@ public class RobotController {
 
     @LoginToken
     @RequestMapping("getRobotList")
-    public Result getRobotList(@RequestHeader("Authorization") String authorization, int state, int region) {
+    public Result getRobotList(@RequestHeader("Authorization") String authorization, @RequestParam(required = false, defaultValue = "0") int state, @RequestParam(required = false, defaultValue = "0") int region) {
         Token token = new ServiceFacade().tokenServiceParseToken(authorization);
         if (token != null) {
             Robot robot = new Robot();
@@ -46,7 +47,7 @@ public class RobotController {
 
     @LoginToken
     @RequestMapping("getRobotInfo")
-    public Result getRobotInfo(@RequestHeader("Authorization") String authorization, int id) {
+    public Result getRobotInfo(@RequestHeader("Authorization") String authorization, @RequestParam int id) {
         Token token = new ServiceFacade().tokenServiceParseToken(authorization);
         if (token != null) {
             Robot robot = new Robot();

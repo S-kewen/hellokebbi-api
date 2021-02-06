@@ -11,6 +11,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -29,7 +30,7 @@ public class TransactionController {
 
     @LoginToken
     @RequestMapping("getTransactionList")
-    public Result getTransactionList(@RequestHeader("Authorization") String authorization, int type, String sortName, String sortType) {
+    public Result getTransactionList(@RequestHeader("Authorization") String authorization, @RequestParam(required = false, defaultValue = "0") int type, String sortName, String sortType) {
         Token token = new ServiceFacade().tokenServiceParseToken(authorization);
         if (token != null) {
             Transaction transaction = new Transaction();
@@ -53,7 +54,7 @@ public class TransactionController {
 
     @LoginToken
     @RequestMapping("getTransactionInfo")
-    public Result getTransactionInfo(@RequestHeader("Authorization") String authorization, int id) {
+    public Result getTransactionInfo(@RequestHeader("Authorization") String authorization, @RequestParam int id) {
         Token token = new ServiceFacade().tokenServiceParseToken(authorization);
         if (token != null) {
             Transaction transaction = new Transaction();
@@ -72,7 +73,7 @@ public class TransactionController {
 
     @LoginToken
     @RequestMapping("deleteTransaction")
-    public Result deleteTransaction(@RequestHeader("Authorization") String authorization, int id) {
+    public Result deleteTransaction(@RequestHeader("Authorization") String authorization, @RequestParam int id) {
         Token token = new ServiceFacade().tokenServiceParseToken(authorization);
         if (token != null) {
             Transaction transaction = new Transaction();

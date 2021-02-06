@@ -13,6 +13,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.text.ParseException;
@@ -33,7 +34,7 @@ import java.util.Map;
 public class OrderController {
     @LoginToken
     @RequestMapping("addOrder")
-    public Result addOrder(@RequestHeader("Authorization") String authorization, int rid, String pickupTime, int day, String address, String expireTime, String code) throws ParseException {
+    public Result addOrder(@RequestHeader("Authorization") String authorization, @RequestParam int rid, @RequestParam String pickupTime, @RequestParam int day, @RequestParam String address, @RequestParam String expireTime, @RequestParam String code) throws ParseException {
         Token token = new ServiceFacade().tokenServiceParseToken(authorization);
         if (token != null) {
             User user = new User();
@@ -107,7 +108,7 @@ public class OrderController {
 
     @LoginToken
     @RequestMapping("getOrderList")
-    public Result getRobotList(@RequestHeader("Authorization") String authorization, int state, String sortName, String sortType) {
+    public Result getRobotList(@RequestHeader("Authorization") String authorization, @RequestParam(required = false, defaultValue = "0") int state, String sortName, String sortType) {
         Token token = new ServiceFacade().tokenServiceParseToken(authorization);
         if (token != null) {
             Order order = new Order();
@@ -131,7 +132,7 @@ public class OrderController {
 
     @LoginToken
     @RequestMapping("getOrderInfo")
-    public Result getOrderInfo(@RequestHeader("Authorization") String authorization, int id) {
+    public Result getOrderInfo(@RequestHeader("Authorization") String authorization, @RequestParam int id) {
         Token token = new ServiceFacade().tokenServiceParseToken(authorization);
         if (token != null) {
             Order order = new Order();
@@ -150,7 +151,7 @@ public class OrderController {
 
     @LoginToken
     @RequestMapping("deleteOrder")
-    public Result deleteOrder(@RequestHeader("Authorization") String authorization, int id) {
+    public Result deleteOrder(@RequestHeader("Authorization") String authorization, @RequestParam int id) {
         Token token = new ServiceFacade().tokenServiceParseToken(authorization);
         if (token != null) {
             Order order = new Order();
@@ -174,7 +175,7 @@ public class OrderController {
 
     @LoginToken
     @RequestMapping("completeOrder")
-    public Result completeOrder(@RequestHeader("Authorization") String authorization, int id) {
+    public Result completeOrder(@RequestHeader("Authorization") String authorization, @RequestParam int id) {
         Token token = new ServiceFacade().tokenServiceParseToken(authorization);
         if (token != null) {
             Order order = new Order();
@@ -250,7 +251,7 @@ public class OrderController {
 
     @LoginToken
     @RequestMapping("cancelOrder")
-    public Result cancelOrder(@RequestHeader("Authorization") String authorization, int id) {
+    public Result cancelOrder(@RequestHeader("Authorization") String authorization, @RequestParam int id) {
         Token token = new ServiceFacade().tokenServiceParseToken(authorization);
         if (token != null) {
             Order order = new Order();
