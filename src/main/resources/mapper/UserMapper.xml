@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boot.hellokebbi.dao.UserMapper">
+    <select id="getById" parameterType="com.boot.hellokebbi.entity.User"
+            resultType="com.boot.hellokebbi.entity.User">
+        select * from user where id=#{id} limit 1
+    </select>
+    <select id="getByUsername" parameterType="com.boot.hellokebbi.entity.User"
+            resultType="com.boot.hellokebbi.entity.User">
+        select * from user where username=#{username} limit 1
+    </select>
+    <select id="getByUsernamePassword" parameterType="com.boot.hellokebbi.entity.User"
+            resultType="com.boot.hellokebbi.entity.User">
+        select * from user where username=#{username} and password=MD5(#{password}) limit 1
+    </select>
+    <update id="updateOne" parameterType="com.boot.hellokebbi.entity.User">
+        update user
+        <set>
+            <if test="password!=null and password!=''">password=MD5(#{password}),</if>
+            <if test="state!=null and state!=''">state=#{state},</if>
+            <if test="email!=null and email!=''">email=#{email},</if>
+            <if test="phone!=null and phone!=''">phone=#{phone},</if>
+            <if test="id_card!=null and id_card!=''">id_card=#{id_card},</if>
+            <if test="remark!=null">remark=#{remark},</if>
+        </set>
+        where
+        id=#{id}
+        limit 1
+    </update>
+    <insert id="insertOne" parameterType="com.boot.hellokebbi.entity.User">
+        insert into user values(0,#{username},MD5(#{password}),#{state},#{email},#{phone},#{id_card},#{point},#{remark},CURRENT_TIMESTAMP())
+    </insert>
+    <select id="getCount" parameterType="com.boot.hellokebbi.entity.User" resultType="int">
+        select count(*) from user
+        <where>
+            <if test="username!=null and username!=''">and username=#{username}</if>
+        </where>
+    </select>
+</mapper>

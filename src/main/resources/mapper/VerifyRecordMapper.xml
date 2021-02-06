@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boot.hellokebbi.dao.VerifyRecordMapper">
+    <select id="getById" parameterType="com.boot.hellokebbi.entity.VerifyRecord"
+            resultType="com.boot.hellokebbi.entity.VerifyRecord">
+        select * from verify_record where id=#{id} limit 1
+    </select>
+    <update id="updateOne" parameterType="com.boot.hellokebbi.entity.VerifyRecord">
+        update verify_record
+        <set>
+            <if test="state!=null and state!=''">state=#{state},</if>
+        </set>
+        where
+        id=#{id}
+        limit 1
+    </update>
+    <insert id="insertOne" parameterType="com.boot.hellokebbi.entity.VerifyRecord">
+        insert into verify_record
+        values(0,#{uid},#{receiver},#{type},#{state},#{code},#{expire_time},CURRENT_TIMESTAMP())
+    </insert>
+    <update id="updateByCode" parameterType="com.boot.hellokebbi.entity.VerifyRecord">
+        update verify_record
+        <set>
+            state=2
+        </set>
+        where
+        code=#{code} and receiver=#{receiver} and state = 1 and expire_time>now()
+        limit 1
+    </update>
+</mapper>

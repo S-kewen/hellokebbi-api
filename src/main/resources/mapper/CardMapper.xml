@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boot.hellokebbi.dao.CardMapper">
+    <insert id="insertOne" parameterType="com.boot.hellokebbi.entity.Card">
+        insert into card values(0,#{uid},#{name},#{state},#{card_num},#{good_thru},#{password},CURRENT_TIMESTAMP())
+    </insert>
+    <select id="getList" parameterType="com.boot.hellokebbi.entity.Card" resultType="java.util.HashMap">
+        select id,uid,name,state,card_num,good_thru,password,add_time from card
+        <where>
+            <if test="uid!=null and uid!=''">and uid=#{uid}</if>
+        </where>
+    </select>
+    <select id="getById" parameterType="com.boot.hellokebbi.entity.Card"
+            resultType="com.boot.hellokebbi.entity.Card">
+        select * from card where id=#{id} limit 1
+    </select>
+    <select id="getCount" parameterType="com.boot.hellokebbi.entity.Card" resultType="int">
+        select count(*) from card
+        <where>
+            <if test="uid!=null and uid!=''">and uid=#{uid}</if>
+            <if test="card_num!=null and card_num!=''">and card_num=#{card_num}</if>
+        </where>
+    </select>
+    <delete id="deleteOne" parameterType="com.boot.hellokebbi.entity.Card">
+        delete from card where id=#{id} and uid=#{uid} limit 1
+    </delete>
+    <update id="updateOne" parameterType="com.boot.hellokebbi.entity.Card">
+        update card
+        <set>
+            <if test="name!=null and name!=''">name=#{name},</if>
+            <if test="card_num!=null and card_num!=''">card_num=#{card_num},</if>
+            <if test="good_thru!=null and good_thru!=''">good_thru=#{good_thru},</if>
+            <if test="password!=null and password!=''">password=#{password},</if>
+        </set>
+        where id=#{id} and uid=#{uid} limit 1
+    </update>
+</mapper>

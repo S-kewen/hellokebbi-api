@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boot.hellokebbi.dao.TransactionMapper">
+    <select id="getList" parameterType="com.boot.hellokebbi.entity.Transaction" resultType="java.util.HashMap">
+        select * from transaction_record
+        <where>
+            <if test="uid!=null and uid!=''">and uid=#{uid}</if>
+            <if test="state!=null and state!=''">and state=#{state}</if>
+            <if test="type!=null and type!=''">and type=#{type}</if>
+        </where>
+    </select>
+    <select id="getInfo" parameterType="com.boot.hellokebbi.entity.Transaction"
+            resultType="com.boot.hellokebbi.entity.Transaction">
+        select * from transaction_record where id=#{id} and uid=#{uid} limit 1
+    </select>
+    <delete id="deleteOne" parameterType="com.boot.hellokebbi.entity.Transaction">
+        delete from transaction_record where id=#{id} and uid=#{uid} limit 1
+    </delete>
+</mapper>
