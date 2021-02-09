@@ -7,6 +7,9 @@ Api Documentation : http://www.docway.net/project/1ZII7rRhMPZ/1b30FI1dr7Y
 ![](https://img.shields.io/github/tag/S-kwen/hellokebbiapi.svg)
  ![](https://img.shields.io/github/release/S-kwen/hellokebbiapi.svg)
  ![](https://img.shields.io/github/issues/S-kwen/hellokebbiapi.svg)
+
+### Summary
+- An intelligent robot rental platform, the project is divided into two parts, one is the client side developed by android studio, and the other is the server side developed by IDEA.
 ### OOSE Team Work 2
 - Due by 12/28/2020 (Oral presentation on 12/30/2020, 12/31/2020)
 Instruction:
@@ -41,6 +44,6 @@ Project design description:
 [file-pdf](https://skwen.s3-ap-northeast-1.amazonaws.com/file-tw2.pdf)<br>
 [file-ppt](https://skwen.s3-ap-northeast-1.amazonaws.com/final-tw2.pptx)
 
-### Summary
-- An intelligent robot rental platform, the project is divided into two parts, one is the client side developed by android studio, and the other is the server side developed by IDEA.
-[^END]: Thanks for watching 
+<br>
+## Thank you for watching.
+# END
