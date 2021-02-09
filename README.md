@@ -26,13 +26,13 @@ Project design description:
 ### Develop Environment
 * IntelliJ IDEA<br>
 ![](https://upload.cc/i1/2021/02/09/ftFWbz.jpg)
-* Spring Boot
+* Spring Boot<br>
 ![](https://upload.cc/i1/2021/02/09/hKMHG4.png)
-* Mybatis
+* Mybatis<br>
 ![](https://upload.cc/i1/2021/02/09/SA8eWr.jpg)
-* Druid
+* Druid<br>
 ![](https://upload.cc/i1/2021/02/09/ihKDnj.jpg)
-* jwt
+* jwt<br>
 ![](https://upload.cc/i1/2021/02/09/idY3Xx.jpg
 )
 ### report
