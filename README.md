@@ -24,6 +24,8 @@ Project design description:
 * 6. Please analyze the invocation chains of your design.
 * 7. Based on the metrics result, please identify the places that need improvement, Selecting an improvement strategy,
 ### Develop Environment
+* Design Pattern<br>
+![](https://upload.cc/i1/2021/02/09/A46PC1.png)
 * IntelliJ IDEA<br>
 ![](https://upload.cc/i1/2021/02/09/ftFWbz.jpg)
 * Spring Boot<br>
@@ -41,4 +43,4 @@ Project design description:
 
 ### Summary
 - An intelligent robot rental platform, the project is divided into two parts, one is the client side developed by android studio, and the other is the server side developed by IDEA.
-# END
+[^END]: Thanks for watching 
