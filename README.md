@@ -43,7 +43,5 @@ Project design description:
 ### report
 [file-pdf](https://skwen.s3-ap-northeast-1.amazonaws.com/file-tw2.pdf)<br>
 [file-ppt](https://skwen.s3-ap-northeast-1.amazonaws.com/final-tw2.pptx)
-
-<br>
 ## Thank you for watching.
 # END
