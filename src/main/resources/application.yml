@@ -1,5 +1,5 @@
 server:
-  port: 443
+  port: 811
   ssl:
     key-store: classpath:hellokebbi-api.iskwen.com.jks
     key-store-password: qq19971102
@@ -54,11 +54,6 @@ mybatis:
   type-aliases-package: com.boot.hellokebbi.entity.**
 #  configuration:
 #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-
-
-
-http:
-  port: 80
 
 yunCourier:
   appId: 22
