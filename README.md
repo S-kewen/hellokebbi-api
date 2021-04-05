@@ -2,7 +2,7 @@
 Api Documentation : http://www.docway.net/project/1dDzqJS6TvE
 
 For android app  projects, please go to：
- https://github.com/S-kwen/hellokebbi-app
+https://github.com/S-kwen/hellokebbi-app
 <br>
 ### OOSE Team Work 2
 - Due by 12/28/2020 (Oral presentation on 12/30/2020, 12/31/2020)
