@@ -61,7 +61,7 @@ We use 12 patterns in our system. The following are the patterns we use.
 #### Template method + Builder
 ![](https://upload.cc/i1/2021/04/05/nEsK5v.jpg)
 
-####For others, please see the file below...
+#### For others, please see the file below...
 ### report
 [file-pdf](https://cos-hongkong.iskwen.com/file-tw2.pdf)<br>
 [file-ppt](https://cos-hongkong.iskwen.com/T02TW2.pptx)

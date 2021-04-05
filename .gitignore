@@ -35,3 +35,4 @@ build/
 ### main ###
 target/
 .mvn
+.gitignore
