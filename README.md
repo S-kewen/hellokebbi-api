@@ -1,15 +1,27 @@
 ### helloKebbi-api
 Api Documentation : http://www.docway.net/project/1ZII7rRhMPZ/1b30FI1dr7Y
 <br>
-<br>
-![](https://img.shields.io/github/stars/S-kwen/hellokebbiapi.svg)
- ![](https://img.shields.io/github/forks/S-kwen/hellokebbiapi.svg) 
-![](https://img.shields.io/github/tag/S-kwen/hellokebbiapi.svg)
- ![](https://img.shields.io/github/release/S-kwen/hellokebbiapi.svg)
- ![](https://img.shields.io/github/issues/S-kwen/hellokebbiapi.svg)
 
 ### Summary
 - An intelligent robot rental platform, the project is divided into two parts, one is the client side developed by android studio, and the other is the server side developed by IDEA.
+### Introduction
+* HelloKebbi APP is a robot "rent-to-own" business. We provide users robot rentals
+service by charging them cheap rents per day. Our target customers are people with
+emergency and short- term elderly health care needs and families with elderly at
+home.
+* We also cooperate with the iBox system to bring more convenience to our users.
+After the user completed the reservation, he/she can simply go to the nearest iBox
+and pick up Kebbi by entering the code which will be showed on the payment
+confirm message. When the user is going to return Kebbi, all he/she need to do is
+put it back to the iBox to finish the returning process.
+![](https://upload.cc/i1/2021/04/05/R4qouN.jpg)
+* In our system design, we applied the persistence framework by using Mybatis
+and Druid based on SpringBoot. A persistence framework hides the database
+access functions from the business objects. It substantially reduces the impact to the
+business objects when the database is changed. Mybatis provides data mapping
+function, encapsulation for accessing underlying data and DAO persistence
+framework. It can make us easier develop and configure our DAL layer, and it has
+dynamic SQL statements and anti-SQL injection functions.
 ### OOSE Team Work 2
 - Due by 12/28/2020 (Oral presentation on 12/30/2020, 12/31/2020)
 Instruction:
@@ -40,8 +52,20 @@ Project design description:
 * jwt<br>
 ![](https://upload.cc/i1/2021/02/09/idY3Xx.jpg
 )
+### Patterns Applied on GUI & Pattern Snapshots
+We use 12 patterns in our system. The following are the patterns we use.
+#### chain of responsibility
+![](https://upload.cc/i1/2021/04/05/IOPByp.jpg)
+#### facade
+![](https://upload.cc/i1/2021/04/05/yksvhI.jpg)
+#### Template method + Builder
+![](https://upload.cc/i1/2021/04/05/nEsK5v.jpg)
+
+####For others, please see the file below...
 ### report
-[file-pdf](https://skwen.s3-ap-northeast-1.amazonaws.com/file-tw2.pdf)<br>
-[file-ppt](https://skwen.s3-ap-northeast-1.amazonaws.com/final-tw2.pptx)
-## Thank you for watching.
+[file-pdf](https://cos-hongkong.iskwen.com/file-tw2.pdf)<br>
+[file-ppt](https://cos-hongkong.iskwen.com/T02TW2.pptx)
+### Contact Author
+石桂華(Skwen) https://blog.iskwen.com
 # END
+* Thank you for watching.
